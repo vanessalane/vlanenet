@@ -1,0 +1,31 @@
+{% load static %}
+
+<head>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block head %}
+    {% endblock %}
+</head>
+<body>
+<div class="main-container">
+    <header>
+        <h1>Vanessa's Cookbook</h1>
+        {% include '_partials/navbar.html' %}
+    </header>
+    <div class="card">
+        <h1>
+            {% block title %}{% endblock %}
+        </h1>
+        <h2>
+            {% block subtitle %}{% endblock %}
+        </h2>
+        {% block body %}
+        {% endblock %}
+    </div>
+
+    <footer>
+        {% block footer %}
+        {% endblock %}
+    </footer>
+</div>
+</body>
