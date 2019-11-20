@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block body %}
+{% if recipe %}
+    <h1>{{ recipe.title }}</h1>
+    Prep time: {{ recipe.prep_time }} {{ recipe.time_units }}
+    <br>
+    Cook time: {{ recipe.cook_time }} {{ recipe.time_units }}
+    <br>
+    Yield: {{ recipe.yield_count }} {{ recipe.yield_units }}
+
+    {% if image %}
+        <div class="image">
+            <img src={{image.url}} alt={{image.alt}}>
+        </div>
+    {% endif %}
+
+    {% if ingredients %}
+        <h2>Ingredients</h2>
+        {% for ingredient in ingredients %}
+            <input type="checkbox">{{ ingredient }}</input>
+            <br>
+        {% endfor %}
+    {% endif %}
+
+    <h2>Instructions</h2>
+    <p>{{ recipe.instructions|linebreaks }}</p>
+{% endif %}
+{% endblock %}
+
+{% block footer %}
+    Date Published: {{ recipe.pub_date }}
+{% endblock %}
