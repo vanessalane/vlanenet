@@ -18,11 +18,13 @@
             </div>
         {% endif %}
         {% if ingredients %}
-            <h3>Ingredients</h2>
+        <div class="bottom-padding">
+            <h3 class="no_buffer">Ingredients</h3>
             {% for ingredient in ingredients %}
                 <input type="checkbox">{{ ingredient }}</input>
                 <br>
             {% endfor %}
+        </div>
         {% endif %}
         <h3>Instructions</h2>
         <p>{{ recipe.instructions|linebreaks }}</p>
