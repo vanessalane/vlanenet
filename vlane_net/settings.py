@@ -32,6 +32,7 @@ ALLOWED_HOSTS = ['mysterious-stream-39497.herokuapp.com', '127.0.0.1']
 # Application definition
 
 INSTALLED_APPS = [
+    'home.apps.HomeConfig',
     'cookbook.apps.CookbookConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -122,7 +123,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = 'static/'
 
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
