@@ -10,9 +10,8 @@ class IngredientInline(admin.TabularInline):
 
 class RecipeAdmin(admin.ModelAdmin):
     fieldsets = [
-        (None, {'fields': ['title', 'yield_count', 'yield_units', 'prep_time', 
-            'cook_time', 'time_units', 'instructions']}),
-        ('Date information', {'fields': ['pub_date'], 'classes': ['collapse']})
+        (None, {'fields': ['pub_date', 'title', 'yield_count', 'yield_units', 'prep_time', 
+            'cook_time', 'time_units', 'instructions']})
     ]
     inlines = [IngredientInline]
 
