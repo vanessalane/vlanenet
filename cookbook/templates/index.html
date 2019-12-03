@@ -1,9 +1,8 @@
 {% extends 'base.html' %}
 
-{% block title_card %}
-{% endblock %}
+{% block titles %}{% endblock %}
 
-{% block body %}
+{% block body_content %}
     <h2 class="no_buffer">Recipes</h2>
     {% if recipe_list %}
         {% for recipe in recipe_list %}

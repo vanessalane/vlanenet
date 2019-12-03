@@ -1,0 +1,38 @@
+{% load static %}
+
+<head>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900|Roboto:400,700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block head %}
+    {% endblock %}
+</head>
+
+<body>
+    {% block navbar %}{% endblock %}
+    <div class="main-container">
+        {% block header %}
+            <div class="card header">
+                <h1>{% block header_content %}{% endblock %}</h1>
+            </div>
+        {% endblock %}
+
+        {% block titles %}
+            <div class="card">
+                <h2 class="no_buffer">{% block title %}{% endblock %}</h2>
+                <p class="no_buffer">{% block subtitle %}{% endblock %}</p>
+            </div>
+        {% endblock %}
+
+        {% block body %}
+            <div class="card">
+                {% block body_content %}{% endblock %}
+            </div>
+        {% endblock %}
+
+        <footer>
+            {% block footer %}{% endblock %}
+        </footer>
+    </div>
+</body>

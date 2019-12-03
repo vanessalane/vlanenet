@@ -11,24 +11,25 @@
         Yield: {{ recipe.yield_count }} {{ recipe.yield_units }}
     {% endblock %}
 
-    {% block body %}
+    {% block body_content %}
         {% if image %}
             <div class="image">
                 <img src={{image.url}} alt={{image.alt}}>
             </div>
         {% endif %}
         {% if ingredients %}
-        <div class="bottom-padding">
-            <h3 class="no_buffer">Ingredients</h3>
-            {% for ingredient in ingredients %}
-                <input type="checkbox">{{ ingredient }}</input>
-                <br>
-            {% endfor %}
-        </div>
+            <div class="bottom-padding">
+                <h3 class="no_buffer">Ingredients</h3>
+                <p>
+                {% for ingredient in ingredients %}
+                    <input type="checkbox">{{ ingredient }}</input>
+                {% endfor %}
+                </p>
+            </div>
         {% endif %}
         <h3>Instructions</h2>
         <p>{{ recipe.instructions|linebreaks }}</p>
-    {% endblock %} 
+    {% endblock %}
 {% endif %}
 
 {% block footer %}

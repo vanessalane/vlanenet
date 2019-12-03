@@ -1,35 +1,16 @@
-{% load static %}
+{% extends 'skeleton.html' %}
 
-<head>
-    <link rel="stylesheet" href="{% static 'css/base.css' %}">
-    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900|Roboto:400,700&display=swap" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% block head %}
-    {% endblock %}
-</head>
-<body>
-<div class="main-container">
-    {% block page_header %}
-        <div class="card header">
-            <h1>Vanessa's Cookbook</h1>
-        </div>
-    {% endblock %}
-    {% block navbar %}
-        {% include '_partials/navbar.html' %}
-    {% endblock %}
-    {% block title_card %}
-        <div class="card">
-            <h2 class="no_buffer">{% block title %}{% endblock %}</h2>
-            {% block subtitle %}{% endblock %}
-        </div>
-    {% endblock %}
-    {% block body_card %}
-        <div class="card">
-            {% block body %}{% endblock %}
-        </div>
-    {% endblock %}
-    <footer>
-        {% block footer %}{% endblock %}
-    </footer>
+{% block navbar %}
+<div class="dropdown">
+    <button class="dropdown_button">Menu</button>
+    <div class="dropdown_content">
+        <a href="/">Home</a>
+        <a href="/cookbook">Table of Contents</a>
+        <a href="/admin/cookbook/recipe/add">Add a Recipe</a>
+    </div>
 </div>
-</body>
+{% endblock %}
+
+{% block header_content %}
+    Vanessa's Cookbook
+{% endblock %}
