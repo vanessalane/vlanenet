@@ -1,20 +1,22 @@
-{% load static %}
+{% extends 'skeleton.html' %}
 
-<head>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link rel="stylesheet" href="{% static 'css/base.css' %}">
-    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900|Roboto:400,700&display=swap" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-<body>
-<div class="main-container">
-    <div class="card header">
-        <h1>Vanessa's Site</h1>
-    </div>
-<a href="/cookbook">
-    <div class="card menu_card">
-        <h2>Cookbook</h2>
-    </div>
-</a>
-</div>
-</body>
+{% block header_content %}
+    Vanessa Lane
+{% endblock %}
+
+{% block title %}
+    Click on an app below!
+{% endblock %}
+
+{% block body %}
+    <a href="/cookbook" class="menu_card_link">
+        <div class="card menu_card">
+            Cookbook
+        </div>
+    </a>
+    <a href="https://github.com/vanessalane" class="menu_card_link">
+        <div class="card menu_card">
+            GitHub
+        </div>
+    </a>
+{% endblock %}

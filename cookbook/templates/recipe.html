@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% if recipe %}
-    {% block title %}{{ recipe.title }}{% endblock %}
+    {% block title_text %}{{ recipe.title }}{% endblock %}
 
     {% block subtitle %}
         Prep time: {{ recipe.prep_time }} {{ recipe.time_units }}

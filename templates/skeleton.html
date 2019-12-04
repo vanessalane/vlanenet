@@ -18,14 +18,14 @@
             </div>
         {% endblock %}
 
-        {% block titles %}
-            <div class="card">
-                <h2 class="no_buffer">{% block title %}{% endblock %}</h2>
-                <p class="no_buffer">{% block subtitle %}{% endblock %}</p>
-            </div>
-        {% endblock %}
-
         {% block body %}
+            {% block title %}
+                <div class="card">
+                    <h2 class="no_buffer">{% block title_text %}{% endblock %}</h2>
+                    <p class="no_buffer">{% block subtitle %}{% endblock %}</p>
+                </div>
+            {% endblock %}
+
             <div class="card">
                 {% block body_content %}{% endblock %}
             </div>
