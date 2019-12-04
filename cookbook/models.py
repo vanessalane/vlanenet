@@ -11,6 +11,7 @@ class Recipe(models.Model):
     cook_time = models.PositiveSmallIntegerField()
     time_units = models.CharField(max_length=50)
     instructions = models.TextField()
+    source = models.CharField(max_length=200)
 
     def __str__(self):
         return self.title
