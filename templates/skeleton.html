@@ -2,7 +2,6 @@
 
 <head>
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
-    <link rel="stylesheet" href="{% static 'css/base.css' %}">
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900|Roboto:400,700&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% block head %}
@@ -19,16 +18,13 @@
         {% endblock %}
 
         {% block body %}
-            {% block title %}
-                <div class="card">
+            <div class="card">
+                {% block title %}
                     <h2 class="no_buffer">{% block title_text %}{% endblock %}</h2>
                     <p class="no_buffer">{% block subtitle %}{% endblock %}</p>
-                </div>
-            {% endblock %}
-
-            <div class="card">
-                {% block body_content %}{% endblock %}
-            </div>
+                {% endblock %}
+                <p>{% block body_content %}{% endblock %}</p>
+            </div> 
         {% endblock %}
 
         <footer>

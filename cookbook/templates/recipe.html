@@ -4,6 +4,7 @@
     {% block title_text %}{{ recipe.title }}{% endblock %}
 
     {% block subtitle %}
+        <br>
         Prep time: {{ recipe.prep_time }} {{ recipe.time_units }}
         <br>
         Cook time: {{ recipe.cook_time }} {{ recipe.time_units }}
@@ -17,8 +18,10 @@
                 <img src={{image.url}} alt={{image.alt}}>
             </div>
         {% endif %}
+        <hr>
         {% if ingredients %}
-            <div class="bottom-padding">
+        <div class="row">
+            <div class="column">
                 <h3 class="no_buffer">Ingredients</h3>
                 <p>
                 {% for ingredient in ingredients %}
@@ -26,12 +29,17 @@
                 {% endfor %}
                 </p>
             </div>
-        {% endif %}
-        <h3>Instructions</h2>
-        <p>{{ recipe.instructions|linebreaks }}</p>
+            {% endif %}
+            <div class="column">
+                <h3 class="no_buffer">Instructions</h3>
+                <p>{{ recipe.instructions|linebreaks }}</p>
+            </div>
+        </div>
+        <hr>
+        <p>Date Published: {{ recipe.pub_date }}</p>
     {% endblock %}
 {% endif %}
 
 {% block footer %}
-    Date Published: {{ recipe.pub_date }}
+    
 {% endblock %}

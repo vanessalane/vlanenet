@@ -11,7 +11,6 @@ a h2 {
   
 a {
   color: #6B6B6B;
-  font-size:14px;
   text-decoration: none;
 }
 
@@ -20,42 +19,31 @@ a:hover {
   font-weight: bold;
 }
 
-header a {
-  font-size:12px;
-  position: fixed;
-  top: 0;
-  right: 0;
-  /*width: 300px;*/
-}
-
 h1, h2, h3 {
   font-family: 'Playfair Display', serif;
   color: #336E7B;
 }
 
 h1 {
-  font-size:40px;
   font-family: 'Playfair Display', serif;
   font-weight:900;
   color: #FFF;
 }
 
 h2 {
-  font-size:30px;
   font-weight:700;
 }
   
 h3 {
-  font-size: 24px;
   font-weight:400;
 }
 
-h4 {
-  font-size: 18px;
+hr {
+  border: 1px solid #F2F5F7;
 }
 
 p {
-  font-size: 14px;
+  font-size:13px;
 }
 
 .bottom_buffer {
@@ -72,19 +60,10 @@ p {
 
 .card {
   box-shadow: 0 1em 1em 0 #E3E5E6;
-  padding: 2em 2em 2em 2em;
-  margin: 1em;
-  font-size:4vw;
+  padding: 24px;
+  margin: 16px;
   color: #6B6B6B;
   background-color:#FFF;
-  border-radius: 4px;
-}
-
-.header {
-  box-shadow: 0 1em 1em 0 #E3E5E6;
-  background-color:#6D8891;
-  text-align: center;
-  color: #FFF;
   border-radius: 4px;
 }
 
@@ -99,15 +78,17 @@ p {
 
 .dropdown_button {
   padding: 1em;
-  font-size:14px;
   color: #6B6B6B;
   box-shadow: 0px 1em 2em 0px rgba(0,0,0,0.2);
   border-radius: 4px;
+  margin-left: 1em;
   border-style: none;
+  font-size:13px;
 }
 
 .dropdown_content {
   display: none;
+  margin-left: 1em;
   position: absolute;
   background-color: #FFF;
   min-width: 160px;
@@ -120,22 +101,42 @@ p {
   padding: 12px 16px;
   text-decoration: none;
   display: block;
+  font-size:13px;
 }
 
-.dropdown_content a:hover {background-color: #EDEFF0}
+.dropdown_content a:hover {
+  background-color: #EDEFF0
+}
 
 .dropdown:hover .dropdown_content {
   display: block;
 }
 
+.header {
+  box-shadow: 0 1em 1em 0 #E3E5E6;
+  background-color:#6D8891;
+  text-align: center;
+  color: #FFF;
+  border-radius: 4px;
+}
+
 .menu_card {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 1em 1em 0 #E3E5E6;
   transition: 0.3s;
   float:left;
   width: 150px;
+  text-align: center;
 }
 
 .menu_card:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
   background-color:#E1E7E9;
+}
+
+.row {
+  display: flex;
+}
+
+.column {
+  flex: 50%;
 }

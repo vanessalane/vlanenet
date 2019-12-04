@@ -4,10 +4,9 @@
 
 {% block body_content %}
     {% if recipe_list %}
+        <ul class="no_buffer">
         {% for recipe in recipe_list %}
-            <li>
-                <a href="{{ recipe.title }}">{{ recipe.title }}</a>
-            </li>
+            <li><a href="{{ recipe.title }}">{{ recipe.title }}</a></li>
         {% endfor %}
         </ul>
     {% else %}
