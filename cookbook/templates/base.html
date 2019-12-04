@@ -7,10 +7,18 @@
         <a href="/">Home</a>
         <a href="/cookbook">Table of Contents</a>
         <a href="/admin/cookbook/recipe/add">Add a Recipe</a>
+        {% if recipe %}
+        <a href="/admin/cookbook/recipe/{{ recipe.id }}/change">Edit {{ recipe.title }} Recipe</a>
+        {% endif %}
     </div>
 </div>
 {% endblock %}
 
-{% block header_content %}
-    Vanessa's Cookbook
+
+{% block header %}
+<a href="/cookbook">
+    <div class="card header">
+        <h1>Vanessa's Cookbook</h1>
+    </div>
+</a>
 {% endblock %}
