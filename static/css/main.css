@@ -1,6 +1,6 @@
 html {
   font-family: 'Roboto', sans-serif;
-  background-color:#F8F2EF;
+  background-color:#FCFCFC;
   color: #534F54;
   margin:8px;
 }
@@ -63,7 +63,7 @@ p {
 }
 
 .card {
-  box-shadow: 0 1em 1em 0 #F3E9E3;
+  box-shadow: 0 1em 1em 0 #DBDBDB;
   padding: 24px;
   margin: 16px;
   color: #6B6B6B;
@@ -83,8 +83,8 @@ p {
 .dropdown_button {
   padding: 1em;
   color: #6B6B6B;
-  box-shadow: 0px 1em 2em 0px rgba(0,0,0,0.2);
-  border-radius: 4px;
+  box-shadow: 0px 1em 2em 0px #DBDBDB;
+  border-radius: 2px;
   margin-left: 1em;
   border-style: none;
   font-size:13px;
@@ -92,13 +92,13 @@ p {
 
 .dropdown_content {
   display: none;
+  box-shadow: 0px 1em 1em 0px;
+  border-radius: 2px;
   margin-left: 1em;
   position: absolute;
   background-color: #FFF;
   min-width: 160px;
-  box-shadow: 0px 1em 1em 0px rgba(0,0,0,0.2);
   z-index: 1;
-  border-radius: 4px;
 }
 
 .dropdown_content a {
@@ -117,7 +117,7 @@ p {
 }
 
 .header {
-  box-shadow: 0 1em 1em 0 #F3E9E3;
+  box-shadow: 0 1em 1em 0 #DBDBDB;
   background-color:#6D8891;
   text-align: center;
   color: #FFF;
@@ -125,7 +125,7 @@ p {
 }
 
 .menu_card {
-  box-shadow: 0 1em 1em 0 #F3E9E3;
+  box-shadow: 0 1em 1em 0 #DBDBDB;
   transition: 0.3s;
   float:left;
   width: 150px;
@@ -133,8 +133,7 @@ p {
 }
 
 .menu_card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-  background-color:#E1E7E9;
+  box-shadow: 0em 1em 1em 0em #ADADAD;
 }
 
 .row {
