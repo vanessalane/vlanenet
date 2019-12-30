@@ -1,2 +1,2 @@
-web: gunicorn vlane_net.wsgi --log-file -
+web: gunicorn config.wsgi --log-file -
 release: python manage.py migrate
