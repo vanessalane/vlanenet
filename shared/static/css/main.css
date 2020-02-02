@@ -77,8 +77,7 @@ p {
 }
 
 .contact_buttons {
-  right: 2em;
-  position: absolute;
+  text-align: right;
 }
 
 .dropdown {

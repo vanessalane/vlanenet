@@ -1,10 +1,17 @@
 {% extends 'skeleton.html' %}
-{% block header_content %}
-<a href="/">
-    <h1>Resume</h1>
-</a>
-
+{% block menu %}
+<div class="dropdown">
+    <button class="dropdown_button">Menu</button>
+    <div class="dropdown_content">
+        <a href="/">Home</a>
+    </div>
+</div>
 {% endblock %}
+
+{% block header_content %}
+Resume
+{% endblock header_content %}
+
 {% block body %}
 <div class="pdf">
     <embed src="/static/pdf/vanessalane_resume.pdf" type="application/pdf" height=70% width="100%">

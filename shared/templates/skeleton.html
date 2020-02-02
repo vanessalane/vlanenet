@@ -9,23 +9,28 @@
 </head>
 
 <body>
-    {% block contact_buttons %}
-        <div class="contact_buttons">
-            <a href="https://www.instagram.com/vl.pottery/">
-                <img src="{% static 'img/instagram_logo.png' %}" alt="Instagram">
-            </a>
-            <a href="https://www.linkedin.com/in/vanessa-lane/">
-                <img src="{% static 'img/linkedin_logo.png' %}" alt="LinkedIn">
-            </a>
-            <a href="https://github.com/vanessalane">
-                <img src="{% static 'img/github_logo.png' %}" alt="GitHub">
-            </a>
-            <a href="mailto:vlane0593@gmail.com">
-                <img src="{% static 'img/gmail_logo.png' %}" alt="Gmail">
-            </a>
+    <div class="row">
+        <div class="menu column">
+            {% block menu %}{% endblock %}
         </div>
-    {% endblock %}
-    {% block navbar %}{% endblock %}
+        {% block contact_buttons %}
+            <div class="contact_buttons column">
+                <a href="https://www.instagram.com/vl.pottery/">
+                    <img src="{% static 'img/instagram_logo.png' %}" alt="Instagram">
+                </a>
+                <a href="https://www.linkedin.com/in/vanessa-lane/">
+                    <img src="{% static 'img/linkedin_logo.png' %}" alt="LinkedIn">
+                </a>
+                <a href="https://github.com/vanessalane">
+                    <img src="{% static 'img/github_logo.png' %}" alt="GitHub">
+                </a>
+                <a href="mailto:vlane0593@gmail.com">
+                    <img src="{% static 'img/gmail_logo.png' %}" alt="Gmail">
+                </a>
+            </div>
+        {% endblock %}
+    </div>
+    <hr>
     <div class="main-container">
         {% block header %}
             <div class="card header">
