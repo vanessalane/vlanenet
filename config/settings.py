@@ -126,8 +126,7 @@ USE_TZ = True
 
 STATICFILES_DIRS = [
     'shared/static/',
-    'cookbook/static/',
-    'home/static/',
+    'home/static/'
 ]
 
 # Simplified static file serving.

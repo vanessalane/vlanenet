@@ -1,7 +1,6 @@
 from django.shortcuts import render
-from django.views.generic import View, TemplateView
 
-from .models import Recipe, Ingredient
+from .models import Recipe
 from .parser import parse_ingredients
 
 def RecipeView(request, recipe_title):
