@@ -1,12 +1,5 @@
 {% extends 'skeleton.html' %}
-{% block menu %}
-<div class="dropdown">
-    <button class="dropdown_button">Menu</button>
-    <div class="dropdown_content">
-        <a href="/">Home</a>
-    </div>
-</div>
-{% endblock %}
+{% load static %}
 
 {% block header_content %}
 Resume
@@ -17,4 +10,3 @@ Resume
     <embed src="/static/pdf/vanessalane_resume.pdf" type="application/pdf" height=70% width="100%">
 </div>
 {% endblock body %}
-
