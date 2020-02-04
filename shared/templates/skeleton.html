@@ -7,48 +7,38 @@
     {% block head %}
     {% endblock %}
 </head>
-
+<div class="sidebar">
+    <h3 class="sidebar_header">Pages</h3>
+    <a class="active" href="/">About Me</a>
+    <a href="/resume">Resume</a>
+    <a href="/cookbook">Cookbook</a>
+    <h3 class="sidebar_header contact_info">Get in Touch</h3>
+    <a href="mailto:vlane0593@gmail.com">Gmail</a>
+    <a href="https://www.linkedin.com/in/vanessa-lane/">LinkedIn</a>
+    <a href="https://github.com/vanessalane">GitHub</a>
+</div>
+<div class="content">
 <body>
-    <div class="row">
-        <div class="menu column">
-            {% block menu %}{% endblock %}
-        </div>
-        {% block contact_buttons %}
-            <div class="contact_buttons column">
-                <a href="https://www.instagram.com/vl.pottery/">
-                    <img src="{% static 'img/instagram_logo.png' %}" alt="Instagram">
-                </a>
-                <a href="https://www.linkedin.com/in/vanessa-lane/">
-                    <img src="{% static 'img/linkedin_logo.png' %}" alt="LinkedIn">
-                </a>
-                <a href="https://github.com/vanessalane">
-                    <img src="{% static 'img/github_logo.png' %}" alt="GitHub">
-                </a>
-                <a href="mailto:vlane0593@gmail.com">
-                    <img src="{% static 'img/gmail_logo.png' %}" alt="Gmail">
-                </a>
-            </div>
-        {% endblock %}
-    </div>
+{% block header %}
+    <div class="header">
+        <h1>{% block header_content %}Vanessa Lane{% endblock %}</h1>
     <hr>
-    <div class="main-container">
-        {% block header %}
-            <div class="card header">
-                <h1>{% block header_content %}{% endblock %}</h1>
-            </div>
+{% endblock %}
+{% block body %}
+    <div>
+        {% block title %}
+            <h2 class="no_buffer">{% block title_text %}{% endblock %}</h2>
+            <p class="no_buffer">{% block subtitle %}{% endblock %}</p>
         {% endblock %}
-        {% block body %}
-            <div class="card">
-                {% block title %}
-                    <h2 class="no_buffer">{% block title_text %}{% endblock %}</h2>
-                    <p class="no_buffer">{% block subtitle %}{% endblock %}</p>
-                {% endblock %}
-                <p>{% block body_content %}{% endblock %}</p>
-            </div> 
-        {% endblock %}
-
-        <footer>
-            {% block footer %}{% endblock %}
-        </footer>
+        <p>{% block body_content %}{% endblock %}</p>
+    </div> 
+{% endblock %}
+    <hr>
+<footer>
+    <div class="footer">
+    {% block footer_content %}
+    {% endblock %}
     </div>
+</footer>
 </body>
+</div>

@@ -47,18 +47,8 @@ footer {
   margin:0;
 }
 
-.center {
-  text-align: center;
-}
-
 /* contact buttons in footer */
-.contact_buttons {
-  position: fixed;
-  top:0;
-  right:0;
-}
-
-.contact_buttons img {
+img {
   max-width: 50px;
   max-height: 40px;
   padding: 8px;
@@ -94,9 +84,6 @@ footer {
   background-color: #8c8c8c;
   color: white;
 }
-.sidebar_header {
-  margin-left: 8px;
-}
 
 /* Page content. The value of the margin-left property should match the value of the sidebar's width property */
 div.content {
@@ -112,16 +99,8 @@ div.content {
     height: auto;
     position: relative;
   }
-  .sidebar_header {
-
-  }
   .sidebar a {float: left;}
   div.content {margin-left: 0;}
-  .contact_buttons {
-    position: fixed;
-    bottom:0;
-    right:0;
-  }
 }
 
 /* On screens that are less than 400px, display the bar vertically, instead of horizontally */
@@ -129,10 +108,5 @@ div.content {
   .sidebar a {
     text-align: center;
     float: none;
-  }
-  .contact_buttons {
-    position: fixed;
-    bottom:0;
-    right:0;
   }
 }
