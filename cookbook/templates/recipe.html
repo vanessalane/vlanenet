@@ -22,9 +22,11 @@
 
     {% block body_content %}
         {% if image %}
-            <div class="image">
+            {% block left_column %}
                 <img src={{image.url}} alt={{image.alt}}>
-            </div>
+            {% endblock %}
+        {% else %}
+            {% block left %}{% endblock %}
         {% endif %}
         <hr>
         {% if ingredients %}

@@ -9,36 +9,45 @@
 </head>
 <div class="sidebar">
     <h3 class="sidebar_header">Pages</h3>
-    <a class="active" href="/">About Me</a>
+    <a class="active" href="/">About</a>
     <a href="/resume">Resume</a>
     <a href="/cookbook">Cookbook</a>
+    <a href="/vlpottery">Pottery</a>
     <h3 class="sidebar_header contact_info">Get in Touch</h3>
     <a href="mailto:vlane0593@gmail.com">Gmail</a>
     <a href="https://www.linkedin.com/in/vanessa-lane/">LinkedIn</a>
     <a href="https://github.com/vanessalane">GitHub</a>
 </div>
 <div class="content">
-<body>
-{% block header %}
-    <div class="header">
-        <h1>{% block header_content %}Vanessa Lane{% endblock %}</h1>
-    <hr>
-{% endblock %}
-{% block body %}
-    <div>
-        {% block title %}
-            <h2 class="no_buffer">{% block title_text %}{% endblock %}</h2>
-            <p class="no_buffer">{% block subtitle %}{% endblock %}</p>
+    <body>
+        {% block header %}
+            <div class="header">
+                <h1>{% block header_content %}Vanessa Lane{% endblock %}</h1>
+            </div>
+            <hr>
         {% endblock %}
-        <p>{% block body_content %}{% endblock %}</p>
-    </div> 
-{% endblock %}
-    <hr>
-<footer>
-    <div class="footer">
-    {% block footer_content %}
-    {% endblock %}
-    </div>
-</footer>
-</body>
+        {% block body %}
+        <div class="body">
+            {% block title %}
+                <h2 class="no_buffer">{% block title_text %}{% endblock %}</h2>
+                <p class="no_buffer">{% block subtitle %}{% endblock %}</p>
+            {% endblock %}
+            {% block left %}
+            <div class="left_column">
+                {% block left_column %}{% endblock %}
+            </div>
+            {% endblock %}
+            <div class="right_column">
+                {% block body_content %}{% endblock %}
+            </div>
+        </div> 
+        {% endblock %}
+        <footer>
+            <hr>
+            <div class="footer">
+            {% block footer_content %}
+            {% endblock %}
+            </div>
+        </footer>
+    </body>
 </div>

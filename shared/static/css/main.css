@@ -47,6 +47,13 @@ footer {
   margin:0;
 }
 
+.body {
+  padding-left:2em;
+  padding-right:2em;
+  margin-left:1em;
+  margin-right:1em;
+}
+
 .center {
   text-align: center;
 }
@@ -62,6 +69,16 @@ footer {
   max-width: 50px;
   max-height: 40px;
   padding: 8px;
+}
+
+.right_column .body_content {
+  padding: 1em;
+}
+
+.left_column {
+  width: 50%;
+  float:left;
+  padding: 1em;
 }
 
 /* The side navigation menu */
@@ -83,15 +100,9 @@ footer {
   text-decoration: none;
 }
 
-/* Active/current link */
-.sidebar a.active {
-  background-color: #668586;
-  color: white;
-}
-
 /* Links on mouse-over */
-.sidebar a:hover:not(.active) {
-  background-color: #8c8c8c;
+.sidebar a:hover {
+  background-color: #668586;
   color: white;
 }
 .sidebar_header {
