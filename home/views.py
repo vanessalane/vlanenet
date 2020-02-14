@@ -5,3 +5,6 @@ def HomePageView(request):
 
 def ResumeView(request):
     return render(request, 'resume.html')
+
+def PotteryView(request):
+    return render(request, 'pottery.html')
