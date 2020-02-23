@@ -21,26 +21,33 @@
 <div class="content">
     <body>
         {% block header %}
-            <div class="header">
+            <header>
                 <h1>{% block header_content %}Vanessa Lane{% endblock %}</h1>
-            </div>
+            </header>
             <hr>
         {% endblock %}
         {% block body %}
-        <div class="body">
-            {% block title %}
-                <h2 class="no_buffer">{% block title_text %}{% endblock %}</h2>
-                <p class="no_buffer">{% block subtitle %}{% endblock %}</p>
-            {% endblock %}
-            {% block left %}
-            <div class="left_column">
-                {% block left_column %}{% endblock %}
-            </div>
-            {% endblock %}
-            <div class="right_column">
-                {% block body_content %}{% endblock %}
-            </div>
-        </div> 
+          <main>
+              {% block title %}
+                  <h2 class="no_buffer">{% block title_text %}{% endblock %}</h2>
+                  <p class="no_buffer">{% block subtitle %}{% endblock %}</p>
+              {% endblock %}
+              {% block left_column %}
+                <div class="left_column_content">
+                    {% block left_column_content %}{% endblock %}
+                </div>
+              {% endblock %}
+              {% block right_column %}
+                <div class="right_column_content">
+                    {% block right_column_content %}{% endblock %}
+                </div>
+              {% endblock %}
+              {% block full_width %}
+                <div class="full_width_content">
+                  {% block full_width_content %}{% endblock %}
+                </div>
+              {% endblock %}
+          </main>
         {% endblock %}
         <footer>
             <hr>

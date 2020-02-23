@@ -13,6 +13,12 @@ a:hover {
   font-weight: bold;
 }
 
+footer {
+  font-size: 13px;
+  position: fixed;
+  bottom: 0;
+}
+
 h1, h2, h3 {
   font-family: 'Playfair Display', serif;
 }
@@ -37,21 +43,15 @@ hr {
   border: 1px solid #f1f1f1;
 }
 
-footer {
-  font-size: 13px;
-  position: fixed;
-  bottom: 0;
-}
-
-.no_buffer {
-  margin:0;
-}
-
-.body {
+main {
   padding-left:2em;
   padding-right:2em;
   margin-left:1em;
   margin-right:1em;
+}
+
+.no_buffer {
+  margin:0;
 }
 
 .center {
@@ -71,14 +71,20 @@ footer {
   padding: 8px;
 }
 
-.right_column .body_content {
-  padding: 1em;
+.right_column_content {
+  padding-top: 1em;
+  width: 45%;
+  float: right;
 }
 
-.left_column {
-  width: 50%;
-  float:left;
-  padding: 1em;
+.left_column_content {
+  padding-top: 1em;
+  float: left;
+  width: 45%;
+}
+
+.full_width_content{
+  padding-top: 1em;
 }
 
 /* The side navigation menu */
@@ -116,6 +122,15 @@ div.content {
   height: 1000px;
 }
 
+/* On screens that are less than 1000px wide, collapse the columns */
+@media screen and (max-width: 1000px) {
+    .right_column_content, .left_column_content {
+      width: 90%;
+      float: none;
+    }
+  }
+
+
 /* On screens that are less than 700px wide, make the sidebar into a topbar */
 @media screen and (max-width: 700px) {
   .sidebar {
@@ -124,7 +139,6 @@ div.content {
     position: relative;
   }
   .sidebar_header {
-
   }
   .sidebar a {float: left;}
   div.content {margin-left: 0;}
