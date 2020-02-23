@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from .models import Recipe
+from .models import Recipe, Ingredient
 from .parser import parse_ingredients
 
 def RecipeView(request, recipe_title):
@@ -10,14 +10,14 @@ def RecipeView(request, recipe_title):
         recipe = None
     context = {
         'recipe': recipe,
-        'ingredients': parse_ingredients(recipe)
+        'parsed_ingredients': parse_ingredients(recipe),
+        'ingredients': Ingredient.objects.filter(recipe=recipe.id)
     }
     return render(request, 'recipe.html', context)
 
 def TableOfContentsView(request):
-    recipe_list = Recipe.objects.order_by('title')
     context = {
-        'recipe_list': recipe_list
+        'recipe_list': Recipe.objects.order_by('title')
     }
     return render(request, 'index.html', context)
 

@@ -14,57 +14,32 @@
         Cook time: {{ recipe.cook_time }} {{ recipe.time_units }}
         <br>
         Yield: {{ recipe.yield_count }} {{ recipe.yield_units }}
+        <br>
+        <a href="{{ recipe.source }}">Original Source</a>
         <br><br>
         Last Modified: {{ recipe.mod_date }}
-        <br>
-        <a href="{{ recipe.source }}">Source</a>
     {% endblock %}
 
-    {% if image %}
-        {% block left_column_content %}
-            <img src={{image.url}} alt={{image.alt}}>
-        {% endblock %}
-        {% block right_column_content %}
-            {% if ingredients %}
-            <div class="recipe">
-                <div class="ingredients">
-                    <h3 class="no_buffer">Ingredients</h3>
-                    <p>
-                    {% for ingredient in ingredients %}
-                        <input type="checkbox">{{ ingredient.lower }}</input>
-                        <br>
-                    {% endfor %}
-                    </p>
-                </div>
-                {% endif %}
-                <div class="instructions">
-                    <h3 class="no_buffer">Instructions</h3>
-                    <p>{{ recipe.instructions|linebreaks }}</p>
-                </div>
-            </div>
-        {% endblock %}
-    {% else %}
-      {% block left_column %}{% endblock %}
-      {% block right_column %}{% endblock %}
-    {% endif %}
-
+    {% block left_column %}{% endblock %}
+    {% block right_column %}{% endblock %}
     {% block full_width_content %}
-        {% if ingredients %}
-        <div class="recipe">
-            <div class="ingredients">
-                <h3 class="no_buffer">Ingredients</h3>
-                <p>
-                {% for ingredient in ingredients %}
-                    <input type="checkbox">{{ ingredient.lower }}</input>
-                    <br>
-                {% endfor %}
-                </p>
-            </div>
-            {% endif %}
-            <div class="instructions">
-                <h3 class="no_buffer">Instructions</h3>
-                <p>{{ recipe.instructions|linebreaks }}</p>
-            </div>
-        </div>
+        {% include '_partials/recipe_content.html' %}
+        <hr>
+        <h3>Adjust the volume</h3>
+        <p>
+          Select how much you'd like to divide or multiply the volume
+          using the dropdown below. Click "Adjust!" to update the recipe.
+        </p>
+        <select id="adjust_volume_menu" name="adjust_volume_menu">
+            <option disabled selected value> -- </option>
+            <option value="1/4">1/4x</option>
+            <option value="1/3">1/3x</option>
+            <option value="1/2">1/2x</option>
+            <option value="2">2x</option>
+            <option value="3">3x</option>
+            <option value="4">4x</option>
+        </select>
+        <button id="adjust_volume" name="adjust_volume">Adjust!</button>
+        <hr>
     {% endblock %}
 {% endif %}

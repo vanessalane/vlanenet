@@ -32,7 +32,7 @@ class Ingredient(models.Model):
     optional = models.BooleanField(default=False)
     name = models.CharField(max_length=100)
     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
-    measurement = models.FloatField(null=True, blank=True)
+    quantity = models.FloatField(null=True, blank=True)
 
     TEASPOON = 'TSP'
     TABLESPOON = 'TBSP'
@@ -70,10 +70,9 @@ class Ingredient(models.Model):
     unit = models.CharField(
         max_length=10,
         choices=UNIT_OPTIONS,
-        null=True, 
+        null=True,
         blank=True,
     )
-    
 
-    def __str__(self):  
+    def __str__(self):
         return self.name

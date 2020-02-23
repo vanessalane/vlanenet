@@ -14,10 +14,10 @@ def parse_ingredients(recipe):
         parsed_ingredients = []
         for ingredient in ingredients:
             # handle optional ingredient values
-            if ingredient.measurement:
-                measurement = Fraction(ingredient.measurement)
+            if ingredient.quantity:
+                quantity = Fraction(ingredient.quantity)
             else:
-                measurement = ""
+                quantity = ""
             if ingredient.unit:
                 unit = ingredient.unit
             else:
@@ -28,7 +28,7 @@ def parse_ingredients(recipe):
                 optional = ""
 
             # parse the ingredient string and append to list
-            parsed_ingredient = "{} {} {} {}".format(measurement, unit, ingredient.name, optional)
+            parsed_ingredient = "{} {} {} {}".format(quantity, unit, ingredient.name, optional)
             parsed_ingredients.append(parsed_ingredient)
 
         return parsed_ingredients
