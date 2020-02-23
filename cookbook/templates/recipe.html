@@ -20,15 +20,35 @@
         <a href="{{ recipe.source }}">Source</a>
     {% endblock %}
 
-    {% block body_content %}
-        {% if image %}
-            {% block left_column %}
-                <img src={{image.url}} alt={{image.alt}}>
-            {% endblock %}
-        {% else %}
-            {% block left %}{% endblock %}
-        {% endif %}
-        <hr>
+    {% if image %}
+        {% block left_column_content %}
+            <img src={{image.url}} alt={{image.alt}}>
+        {% endblock %}
+        {% block right_column_content %}
+            {% if ingredients %}
+            <div class="recipe">
+                <div class="ingredients">
+                    <h3 class="no_buffer">Ingredients</h3>
+                    <p>
+                    {% for ingredient in ingredients %}
+                        <input type="checkbox">{{ ingredient.lower }}</input>
+                        <br>
+                    {% endfor %}
+                    </p>
+                </div>
+                {% endif %}
+                <div class="instructions">
+                    <h3 class="no_buffer">Instructions</h3>
+                    <p>{{ recipe.instructions|linebreaks }}</p>
+                </div>
+            </div>
+        {% endblock %}
+    {% else %}
+      {% block left_column %}{% endblock %}
+      {% block right_column %}{% endblock %}
+    {% endif %}
+
+    {% block full_width_content %}
         {% if ingredients %}
         <div class="recipe">
             <div class="ingredients">
