@@ -9,15 +9,15 @@
 
     {% block subtitle %}
         <br>
-        Prep time: {{ recipe.prep_time }} {{ recipe.time_units }}
-        <br>
-        Cook time: {{ recipe.cook_time }} {{ recipe.time_units }}
-        <br>
-        Yield: {{ recipe.yield_count }} {{ recipe.yield_units }}
-        <br>
-        <a href="{{ recipe.source }}">Original Source</a>
-        <br><br>
-        Last Modified: {{ recipe.mod_date }}
+        <div id="prep_time" name="prep_time">
+          Prep time: {{ recipe.prep_time }} {{ recipe.time_units }}
+        </div>
+        <div id="cook_time" name="cook_time">
+          Cook time: {{ recipe.cook_time }} {{ recipe.time_units }}
+        </div>
+        <div id="yield" name="yield">
+          Yield: {{ recipe.yield_count }} {{ recipe.yield_units }}
+        </div>
     {% endblock %}
 
     {% block left_column %}{% endblock %}
@@ -28,18 +28,75 @@
         <h3>Adjust the volume</h3>
         <p>
           Select how much you'd like to divide or multiply the volume
-          using the dropdown below. Click "Adjust!" to update the recipe.
+          using the dropdown below.
         </p>
-        <select id="adjust_volume_menu" name="adjust_volume_menu">
+        <select id="adjust_volume" name="adjust_volume">
             <option disabled selected value> -- </option>
             <option value="1/4">1/4x</option>
-            <option value="1/3">1/3x</option>
-            <option value="1/2">1/2x</option>
+            <option value="1/2"">1/2x</option>
             <option value="2">2x</option>
             <option value="3">3x</option>
             <option value="4">4x</option>
         </select>
-        <button id="adjust_volume" name="adjust_volume">Adjust!</button>
+        <button id="adjust_volume" name="adjust_volume" onclick="adjustVolume()">
+          Apply
+        </button>
+        <button id="reset_volume" name="reset_volume" onclick="resetVolume()">
+          Reset
+        </button>
         <hr>
     {% endblock %}
 {% endif %}
+
+{% block footer_content %}
+Last Modified: {{ recipe.mod_date }}
+<br>
+<a href="{{ recipe.source }}">Original Source</a>
+{% endblock %}
+
+{% block script %}
+<script>
+  var adjustmentVolumeSelector = document.getElementById("adjust_volume");
+  var ingredients = {{ serialized_ingredients|safe }};
+
+  function adjustVolume() {
+    var adjustmentVolume = eval(adjustmentVolumeSelector.value);
+    // adjust yield
+    yield = {{ recipe.yield_count }} * adjustmentVolume;
+    // update the yield element
+    document.getElementById("yield").innerHTML =
+        "Yield: " + yield + " {{ recipe.yield_units}}";
+
+    // adjust ingredients
+    for (i = 0; i < ingredients.length; i++) {
+      // calculate the new quantity based on the adjustment value
+      let quantity = ingredients[i].quantity;
+      let new_quantity = quantity * adjustmentVolume;
+      // format decimals as fractions for readability
+      if (adjustmentVolume < 1) {
+        new_quantity = decimalToFraction(new_quantity).display;
+      }
+      // update the DOM
+      document.getElementById(ingredients[i].name).innerHTML =
+        new_quantity + " " +
+        ingredients[i].unit + " " +
+        ingredients[i].name
+    }
+  }
+
+  function resetVolume() {
+      // reset yield
+      document.getElementById("yield").innerHTML =
+          "Yield: {{ recipe.yield_count }} {{ recipe.yield_units}}";
+
+      // reset ingredients
+      for (i = 0; i < ingredients.length; i++) {
+        document.getElementById(ingredients[i].name).innerHTML =
+            ingredients[i].quantity + " " +
+            ingredients[i].unit + " " +
+            ingredients[i].name;
+      }
+      adjustmentVolumeSelector.selectedIndex = 0;
+    }
+</script>
+{% endblock %}

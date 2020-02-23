@@ -1,16 +1,20 @@
 <div class="recipe">
     <div class="ingredients">
         <h3 class="no_buffer">Ingredients</h3>
-        <p>
-        {% for parsed_ingredient in parsed_ingredients %}
-            <input type="checkbox">{{ parsed_ingredient.lower }}</input>
-            <br>
+        {% for i in ingredients %}
+            <ul>
+                <li id="{{ i.name.lower }}" name="{{ i.name.lower }}">
+                  {{ i.quantity }} {{ i.unit }} {{ i.name.lower }}
+                  {% if i.optional %}
+                    (optional)
+                  {% endif %}
+                </li>
+            <ul>
         {% endfor %}
-        </p>
     </div>
 </div>
 
 <div class="instructions">
-  <h3 class="no_buffer">Instructions</h3>
-  <p>{{ recipe.instructions|linebreaks }}</p>
+    <h3 class="no_buffer">Instructions</h3>
+    <p>{{ recipe.instructions|linebreaks }}</p>
 </div>

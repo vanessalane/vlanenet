@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 from .models import Recipe, Ingredient
-from .parser import parse_ingredients
+from .serializers import serialize_ingredients
 
 def RecipeView(request, recipe_title):
     try:
@@ -10,8 +10,8 @@ def RecipeView(request, recipe_title):
         recipe = None
     context = {
         'recipe': recipe,
-        'parsed_ingredients': parse_ingredients(recipe),
-        'ingredients': Ingredient.objects.filter(recipe=recipe.id)
+        'ingredients': Ingredient.objects.filter(recipe=recipe.id),
+        'serialized_ingredients': serialize_ingredients(recipe)
     }
     return render(request, 'recipe.html', context)
 

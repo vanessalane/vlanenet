@@ -16,7 +16,7 @@ a:hover {
 footer {
   font-size: 13px;
   position: fixed;
-  bottom: 0;
+  padding-bottom: 1em;
 }
 
 h1, h2, h3 {
