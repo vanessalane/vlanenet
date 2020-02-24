@@ -8,13 +8,22 @@ def serialize_ingredients(ingredient_objects):
     """
     ingredients = []
     for ingredient_object in ingredient_objects:
+        if ingredient_object.quantity:
+            quantity = ingredient_object.quantity
+        else:
+            quantity = ""
+        if ingredient_object.unit:
+            unit = ingredient_object.unit.lower()
+        else:
+            unit = ""
         if ingredient_object.optional:
-            name = "{} {}".format(ingredient_object.name, "(optional)")
+            name = "{} {}".format(ingredient_object.name.lower(), "(optional)")
         else:
             name = ingredient_object.name
+
         ingredient = {
-            'quantity': ingredient_object.quantity,
-            'unit': ingredient_object.unit,
+            'quantity': quantity,
+            'unit': unit,
             'name': name
         }
         ingredients.append(ingredient)

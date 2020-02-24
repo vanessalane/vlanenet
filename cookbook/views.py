@@ -10,7 +10,7 @@ def RecipeView(request, recipe_title):
         recipe = None
     ingredients = Ingredient.objects.filter(recipe=recipe.id)
     for ingredient in ingredients:
-        if ingredient.quantity % 1 == 0:
+        if ingredient.quantity and ingredient.quantity % 1 == 0:
             ingredient.quantity = int(ingredient.quantity)
     context = {
         'recipe': recipe,
