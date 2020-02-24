@@ -16,7 +16,7 @@ a:hover {
 footer {
   font-size: 13px;
   position: fixed;
-  bottom: 0;
+  padding-bottom: 1em;
 }
 
 h1, h2, h3 {
@@ -43,11 +43,27 @@ hr {
   border: 1px solid #f1f1f1;
 }
 
+img {
+  padding: 1em;
+}
+
 main {
-  padding-left:2em;
-  padding-right:2em;
-  margin-left:1em;
-  margin-right:1em;
+  padding: 1em;
+}
+
+p {
+  font-size=12px;
+}
+
+.widget_container {
+  background-color: #EDEFF0;
+  border: #E3E5E6 solid;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.widget_content {
+  padding: 8px 16px 16px 8px;
 }
 
 .no_buffer {
@@ -58,33 +74,17 @@ main {
   text-align: center;
 }
 
-/* contact buttons in footer */
-.contact_buttons {
-  position: fixed;
-  top:0;
-  right:0;
-}
-
-.contact_buttons img {
-  max-width: 50px;
-  max-height: 40px;
-  padding: 8px;
-}
-
-.right_column_content {
+#flex_container{
   padding-top: 1em;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+#flex_container > div {
   width: 45%;
-  float: right;
-}
-
-.left_column_content {
-  padding-top: 1em;
-  float: left;
-  width: 45%;
-}
-
-.full_width_content{
-  padding-top: 1em;
+  padding: auto;
 }
 
 /* The side navigation menu */
@@ -124,12 +124,15 @@ div.content {
 
 /* On screens that are less than 1000px wide, collapse the columns */
 @media screen and (max-width: 1000px) {
-    .right_column_content, .left_column_content {
-      width: 90%;
-      float: none;
-    }
+      #flex_container {
+        display: block;
+        padding-bottom: 1em;
+      }
+      #flex_container > div{
+        padding-bottom: 10px;
+        width: 100%;
+      }
   }
-
 
 /* On screens that are less than 700px wide, make the sidebar into a topbar */
 @media screen and (max-width: 700px) {
