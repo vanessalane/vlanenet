@@ -18,16 +18,16 @@
             </div>
             <br>
             <h3 class="no_buffer">Ingredients</h3>
-            {% for i in ingredients %}
-                <ul>
+            <ul>
+                {% for i in ingredients %}
                     <li id="{{ i.name.lower }}" name="{{ i.name.lower }}">
                       {{ i.quantity }} {{ i.unit }} {{ i.name.lower }}
                       {% if i.optional %}
                         (optional)
                       {% endif %}
                     </li>
-                <ul>
-            {% endfor %}
+                {% endfor %}
+            <ul>
         </div>
         <div class="widget_container row">
             <div class="widget_content">
