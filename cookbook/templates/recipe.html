@@ -8,26 +8,32 @@
     {% block column_content %}
         <div class="overview ingredients">
             <div id="prep_time" name="prep_time">
-              Prep time: {{ recipe.prep_time }} {{ recipe.time_units }}
+              Prep time: {{ recipe.prep_time }} {{ recipe.time_units.lower }}
             </div>
             <div id="cook_time" name="cook_time">
-              Cook time: {{ recipe.cook_time }} {{ recipe.time_units }}
+              Cook time: {{ recipe.cook_time }} {{ recipe.time_units.lower }}
             </div>
             <div id="yield" name="yield">
-              Yield: {{ recipe.yield_count }} {{ recipe.yield_units }}
+              Yield: {{ recipe.yield_count }} {{ recipe.yield_units.lower }}
             </div>
             <br>
             <h3 class="no_buffer">Ingredients</h3>
-            {% for i in ingredients %}
-                <ul>
+            <ul>
+                {% for i in ingredients %}
                     <li id="{{ i.name.lower }}" name="{{ i.name.lower }}">
-                      {{ i.quantity }} {{ i.unit }} {{ i.name.lower }}
+                      {% if i.quantity %}
+                          {{ i.quantity }}
+                      {% endif %}
+                      {% if i.unit %}
+                          {{ i.unit }}
+                      {% endif %}
+                      {{ i.name }}
                       {% if i.optional %}
                         (optional)
                       {% endif %}
                     </li>
-                <ul>
-            {% endfor %}
+                {% endfor %}
+            <ul>
         </div>
         <div class="widget_container row">
             <div class="widget_content">
@@ -38,7 +44,7 @@
                 <select id="adjust_volume" name="adjust_volume">
                     <option disabled selected value> -- </option>
                     <option value="1/4">1/4x</option>
-                    <option value="1/2"">1/2x</option>
+                    <option value="1/2">1/2x</option>
                     <option value="2">2x</option>
                     <option value="3">3x</option>
                     <option value="4">4x</option>
@@ -46,7 +52,7 @@
                 <button id="adjust_volume" name="adjust_volume" onclick="adjustVolume()">
                   Apply
                 </button>
-                <button id="reset_volume" name="reset_volume" onclick="resetVolume()">
+                <button id="reset_volume" name="reset_volume" onclick="location.reload()">
                   Reset
                 </button>
             </div>
@@ -73,6 +79,10 @@ Last Modified: {{ recipe.mod_date }}
 
   function adjustVolume() {
     var adjustmentVolume = eval(adjustmentVolumeSelector.value);
+    if (!adjustmentVolume) {
+      alert('No adjustment specified! Please choose a multiplier from the dropdown menu.' );
+      return;
+    }
     // adjust yield
     yield = {{ recipe.yield_count }} * adjustmentVolume;
     // update the yield element
@@ -83,32 +93,17 @@ Last Modified: {{ recipe.mod_date }}
     for (i = 0; i < ingredients.length; i++) {
       // calculate the new quantity based on the adjustment value
       let quantity = ingredients[i].quantity;
-      let new_quantity = quantity * adjustmentVolume;
-      // format decimals as fractions for readability
-      if (adjustmentVolume < 1) {
-        new_quantity = decimalToFraction(new_quantity).display;
-      }
-      // update the ingredient element
-      document.getElementById(ingredients[i].name).innerHTML =
-        new_quantity + " " +
-        ingredients[i].unit + " " +
-        ingredients[i].name
-    }
-  }
-
-  function resetVolume() {
-      // reset yield
-      document.getElementById("yield").innerHTML =
-          "Yield: {{ recipe.yield_count }} {{ recipe.yield_units}}";
-
-      // reset ingredients
-      for (i = 0; i < ingredients.length; i++) {
-        document.getElementById(ingredients[i].name).innerHTML =
-            ingredients[i].quantity + " " +
+      if (!quantity) {
+          continue;
+      } else {
+          let newQuantity = decimalToFraction(quantity * adjustmentVolume).display;
+          // update the ingredient element
+          document.getElementById(ingredients[i].name).innerHTML =
+            newQuantity + " " +
             ingredients[i].unit + " " +
             ingredients[i].name;
       }
-      adjustmentVolumeSelector.selectedIndex = 0;
     }
+  }
 </script>
 {% endblock %}
