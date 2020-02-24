@@ -8,10 +8,14 @@ def RecipeView(request, recipe_title):
         recipe = Recipe.objects.get(title=recipe_title)
     except:
         recipe = None
+    ingredients = Ingredient.objects.filter(recipe=recipe.id)
+    for ingredient in ingredients:
+        if ingredient.quantity % 1 == 0:
+            ingredient.quantity = int(ingredient.quantity)
     context = {
         'recipe': recipe,
-        'ingredients': Ingredient.objects.filter(recipe=recipe.id),
-        'serialized_ingredients': serialize_ingredients(recipe)
+        'serialized_ingredients': serialize_ingredients(ingredients),
+        'ingredients': ingredients
     }
     return render(request, 'recipe.html', context)
 
