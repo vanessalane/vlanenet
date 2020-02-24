@@ -25,9 +25,9 @@
                           {{ i.quantity }}
                       {% endif %}
                       {% if i.unit %}
-                          {{ i.unit }}
+                          {{ i.unit.lower }}
                       {% endif %}
-                      {{ i.name }}
+                      {{ i.name.lower }}
                       {% if i.optional %}
                         (optional)
                       {% endif %}
@@ -98,10 +98,10 @@ Last Modified: {{ recipe.mod_date }}
       } else {
           let newQuantity = decimalToFraction(quantity * adjustmentVolume).display;
           // update the ingredient element
-          document.getElementById(ingredients[i].name).innerHTML =
+          document.getElementById(ingredients[i].name.toLowerCase()).innerHTML =
             newQuantity + " " +
-            ingredients[i].unit + " " +
-            ingredients[i].name;
+            ingredients[i].unit.toLowerCase() + " " +
+            ingredients[i].name.toLowerCase();
       }
     }
   }
