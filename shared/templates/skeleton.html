@@ -31,27 +31,24 @@
           <main>
               {% block title %}
                   <h2 class="no_buffer">{% block title_text %}{% endblock %}</h2>
-                  <p class="no_buffer">{% block subtitle %}{% endblock %}</p>
+                  <p class="no_buffer">{% block subtitle_text %}{% endblock %}</p>
               {% endblock %}
-              {% block left_column %}
-                <div class="left_column_content">
-                    {% block left_column_content %}{% endblock %}
-                </div>
-              {% endblock %}
-              {% block right_column %}
-                <div class="right_column_content">
-                    {% block right_column_content %}{% endblock %}
-                </div>
+              {% block columns %}
+                  <div id="flex_container">
+                    {% block column_content %}{% endblock %}
+                  </div>
               {% endblock %}
               {% block full_width %}
-                <div class="full_width_content">
-                  {% block full_width_content %}{% endblock %}
-                </div>
+              <div class="flex_container">
+                  <div class="full_width">
+                      {% block full_width_content %}{% endblock %}
+                  </div>
+              </div>
               {% endblock %}
           </main>
         {% endblock %}
+        <hr>
         <footer>
-            <hr>
             <div class="footer">
             {% block footer_content %}
             {% endblock %}

@@ -2,7 +2,8 @@
 
 {% block title_text %}Hello, World!{% endblock %}
 
-{% block left_column_content %}
+{% block column_content %}
+<div id="about_me">
   I graduated from the University of California, Berkeley, with a B.A. in
   Molecular and Cell Biology. I'm a software developer working on the research
   team at 23andMe, a direct-to-consumer genetics testing company.
@@ -27,10 +28,10 @@
   a hackathon, and built this website. When I'm not working or reading, I like
   to make pottery, learn languages,  cook, travel, and spend time with friends
   and family.
-{% endblock %}
-
-{% block right_column_content %}
+</div>
+<div class="image">
   <img src="/static/img/vl_headshot.jpg" style="width:350px;max-width:100%;"></img>
+</div>
 {% endblock %}
 
 {% block full_width %}{% endblock %}
