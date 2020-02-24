@@ -100,8 +100,8 @@ Last Modified: {{ recipe.mod_date }}
           // update the ingredient element
           document.getElementById(ingredients[i].name.toLowerCase()).innerHTML =
             newQuantity + " " +
-            ingredients[i].unit + " " +
-            ingredients[i].name;
+            ingredients[i].unit.toLowerCase() + " " +
+            ingredients[i].name.toLowerCase();
       }
     }
   }
