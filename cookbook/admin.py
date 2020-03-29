@@ -5,7 +5,7 @@ from .models import Recipe, Ingredient
 
 class IngredientInline(admin.TabularInline):
     model = Ingredient
-    extra = 0
+    extra = 1
 
 
 class RecipeAdmin(admin.ModelAdmin):

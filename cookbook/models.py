@@ -1,3 +1,4 @@
+from django.core.validators import MinValueValidator
 from django.db import models
 from django.utils import timezone
 
@@ -29,11 +30,6 @@ class Recipe(models.Model):
         return self.title
 
 class Ingredient(models.Model):
-    optional = models.BooleanField(default=False)
-    name = models.CharField(max_length=100)
-    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
-    quantity = models.FloatField(null=True, blank=True)
-
     TEASPOON = 'TSP'
     TABLESPOON = 'TBSP'
     CUP = 'C'
@@ -51,28 +47,32 @@ class Ingredient(models.Model):
     PINCH = 'PINCH'
 
     UNIT_OPTIONS = [
-        (TEASPOON, 'tsp'),
-        (TABLESPOON, 'tbsp'),
         (CUP, 'c'),
-        (FLUID_OUNCE, 'fl oz'),
-        (QUART, 'qt'),
-        (PINT, 'pt'),
-        (GALLON, 'gal'),
-        (MILLILITER, 'ml'),
-        (LITER, 'l'),
         (DECILITER, 'dl'),
-        (OUNCE, 'oz'),
+        (GRAM, 'g'),
+        (GALLON, 'gal'),
+        (FLUID_OUNCE, 'fl oz'),
+        (LITER, 'l'),
         (POUND, 'lb'),
         (MILLIGRAM, 'mg'),
-        (GRAM, 'g'),
-        (PINCH, 'pinch')
+        (MILLILITER, 'ml'),
+        (OUNCE, 'oz'),
+        (PINCH, 'pinch'),
+        (PINT, 'pt'),
+        (QUART, 'qt'),
+        (TABLESPOON, 'tbsp'),
+        (TEASPOON, 'tsp')
     ]
+    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
+    quantity = models.FloatField(validators=[MinValueValidator(0,message="Can't have a negative quantity")], null=True, blank=True)
     unit = models.CharField(
         max_length=10,
         choices=UNIT_OPTIONS,
         null=True,
         blank=True,
     )
+    name = models.CharField(max_length=100)
+    optional = models.BooleanField(default=False)
 
     def __str__(self):
         return self.name

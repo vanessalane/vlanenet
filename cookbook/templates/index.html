@@ -7,13 +7,16 @@
 {% block title_text %}Recipes{% endblock %}
 {% block columns %}{% endblock %}
 {% block full_width_content %}
+    <p>
     {% if recipe_list %}
         <ul>
-        {% for recipe in recipe_list %}
-            <li><a href="{{ recipe.title }}">{{ recipe.title }}</a></li>
-        {% endfor %}
+            {% for recipe in recipe_list %}
+                <li><a href="recipe/{{ recipe.title }}">{{ recipe.title }}</a></li>
+            {% endfor %}
         </ul>
     {% else %}
-        <p>No recipes are available.</p>
+        No recipes are available.
     {% endif %}
+    <a href="{% url 'admin:cookbook_recipe_add' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span> recipe</a>
+    </p>
 {% endblock %}
