@@ -1,22 +1,10 @@
-html {
-  font-family: 'Roboto', sans-serif;
-  background-color:#FCFCFC;
-  color: #3d3a3e;
-}
-
 a {
   text-decoration: none;
   color: #006060;
 }
 
-a:hover {
-  font-weight: bold;
-}
-
 footer {
-  font-size: 13px;
-  position: fixed;
-  padding-bottom: 1em;
+  font-size: 12px;
 }
 
 h1, h2, h3 {
@@ -24,46 +12,16 @@ h1, h2, h3 {
 }
 
 h1 {
-    font-size: 40px;
-    font-weight: 700px;
     text-align: center;
     color: #923026;
 }
 
 h2 {
   color: #2E343B;
-  font-size: 28px;
-}
-
-h3 {
-  font-size: 20px;
 }
 
 hr {
   border: 1px solid #f1f1f1;
-}
-
-img {
-  padding: 1em;
-}
-
-main {
-  padding: 1em;
-}
-
-p {
-  font-size=12px;
-}
-
-.widget_container {
-  background-color: #EDEFF0;
-  border: #E3E5E6 solid;
-  border-radius: 8px;
-  text-align: center;
-}
-
-.widget_content {
-  padding: 8px 16px 16px 8px;
 }
 
 .no_buffer {
@@ -113,6 +71,17 @@ p {
 }
 .sidebar_header {
   margin-left: 8px;
+}
+
+.widget_container {
+  background-color: #EDEFF0;
+  border: #E3E5E6 solid;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.widget_content {
+  padding: 8px 16px 16px 8px;
 }
 
 /* Page content. The value of the margin-left property should match the value of the sidebar's width property */
